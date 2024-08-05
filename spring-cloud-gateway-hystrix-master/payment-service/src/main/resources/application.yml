@@ -8,5 +8,19 @@ spring:
       enabled: true
   application:
     name: payment-service
+#logging:
+#  file: C:/Users/Basant.Hota/Desktop/oms.log
+
 logging:
-  file: C:/Users/Basant.Hota/Desktop/oms.log
+  file:
+    name: /Volumes/SATA/DevOps/existing_repo/spring-cloud-gatway-hystrix/logs/microservice.log
+
+management:
+  endpoint:
+    shutdown:
+      enabled: true #kill process from this trampoline UI
+  endpoints:
+    web:
+      exposure:
+        include:
+          - '*' #enable all the endpoints

@@ -1,0 +1,5 @@
+/Volumes/SATA/DevOps/existing_repo/spring-cloud-gatway-hystrix/spring-cloud-gateway-hystrix-master/payment-service/src/main/java/com/javatechie/ps/api/controller/PaymentController.java
+/Volumes/SATA/DevOps/existing_repo/spring-cloud-gatway-hystrix/spring-cloud-gateway-hystrix-master/payment-service/src/main/java/com/javatechie/ps/api/PaymentServiceApplication.java
+/Volumes/SATA/DevOps/existing_repo/spring-cloud-gatway-hystrix/spring-cloud-gateway-hystrix-master/payment-service/src/main/java/com/javatechie/ps/api/entity/Payment.java
+/Volumes/SATA/DevOps/existing_repo/spring-cloud-gatway-hystrix/spring-cloud-gateway-hystrix-master/payment-service/src/main/java/com/javatechie/ps/api/repository/PaymentRepository.java
+/Volumes/SATA/DevOps/existing_repo/spring-cloud-gatway-hystrix/spring-cloud-gateway-hystrix-master/payment-service/src/main/java/com/javatechie/ps/api/service/PaymentService.java

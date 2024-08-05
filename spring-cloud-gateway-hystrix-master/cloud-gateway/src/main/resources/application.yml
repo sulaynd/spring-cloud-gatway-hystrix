@@ -28,6 +28,9 @@ server:
   port: 8989
   
 management:
+  endpoint:
+    shutdown:
+      enabled: true #kill process from this trampoline UI
   endpoints:
     web:
       exposure:
@@ -39,4 +42,4 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 5000  
+            timeoutInMilliseconds: 5000

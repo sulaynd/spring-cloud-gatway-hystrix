@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: com.javatechie.os.api.OrderServiceApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 24.843 s <<< FAILURE! - in com.javatechie.os.api.OrderServiceApplicationTests
+contextLoads  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'scopedTarget.orderService': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'microservice.payment-service.endpoints.endpoint.uri' in value "${microservice.payment-service.endpoints.endpoint.uri}"
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'microservice.payment-service.endpoints.endpoint.uri' in value "${microservice.payment-service.endpoints.endpoint.uri}"
+

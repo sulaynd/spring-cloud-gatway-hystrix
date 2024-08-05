@@ -1,6 +1,26 @@
 server:
   port: 9191
 spring:
+  zipkin:
+    base-url: http://localhost:9411/
   h2:
     console:
       enabled: true
+  application:
+    name: payment-service
+#logging:
+#  file: C:/Users/Basant.Hota/Desktop/oms.log
+
+logging:
+  file:
+    name: /Volumes/SATA/DevOps/existing_repo/spring-cloud-gatway-hystrix/logs/microservice.log
+
+management:
+  endpoint:
+    shutdown:
+      enabled: true #kill process from this trampoline UI
+  endpoints:
+    web:
+      exposure:
+        include:
+          - '*' #enable all the endpoints

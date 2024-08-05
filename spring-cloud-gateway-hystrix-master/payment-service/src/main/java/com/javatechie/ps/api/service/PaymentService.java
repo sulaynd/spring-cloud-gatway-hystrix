@@ -35,7 +35,7 @@ public class PaymentService {
     }
 
 
-    public Payment findPaymentHistoryByOrderId(int orderId) {
+    public Payment findPaymentHistoryByOrderId(int orderId) throws JsonProcessingException {
         Payment payment=repository.findByOrderId(orderId);
         logger.info("paymentService findPaymentHistoryByOrderId : {}",new ObjectMapper().writeValueAsString(payment));
         return payment ;

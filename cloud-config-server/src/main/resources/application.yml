@@ -5,7 +5,13 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/Java-Techie-jt/cloud-config-server
+          uri: https://github.com/sulaynd/cloud-config-server.git
+          default-label: main
+
+#      loadbalancer:
+#        ribbon:
+#          enabled: false
+
 
 server:
   port: 9196
@@ -17,4 +23,14 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka/
   instance:
-    hostname: localhost    
+    hostname: localhost
+
+management:
+  endpoint:
+    shutdown:
+      enabled: true #kill process from this trampoline UI
+  endpoints:
+    web:
+      exposure:
+        include:
+          - '*' #enable all the endpoints

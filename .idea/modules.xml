@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/cloud-config-server/cloud-config-server.iml" filepath="$PROJECT_DIR$/cloud-config-server/cloud-config-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-cloud-gateway-hystrix-master/cloud-gateway/cloud-gateway.iml" filepath="$PROJECT_DIR$/spring-cloud-gateway-hystrix-master/cloud-gateway/cloud-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-cloud-gateway-hystrix-master/hystrix-dashboard/hystrix-dashboard.iml" filepath="$PROJECT_DIR$/spring-cloud-gateway-hystrix-master/hystrix-dashboard/hystrix-dashboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-cloud-gateway-hystrix-master/order-service/order-service.iml" filepath="$PROJECT_DIR$/spring-cloud-gateway-hystrix-master/order-service/order-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-cloud-gateway-hystrix-master/payment-service/payment-service.iml" filepath="$PROJECT_DIR$/spring-cloud-gateway-hystrix-master/payment-service/payment-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-cloud-gateway-hystrix-master/service-registry/service-registry.iml" filepath="$PROJECT_DIR$/spring-cloud-gateway-hystrix-master/service-registry/service-registry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/spring-cloud-gatway-hystrix.iml" filepath="$PROJECT_DIR$/.idea/spring-cloud-gatway-hystrix.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,13 @@
+server:
+  port: 9195
+
+management:
+  endpoint:
+    shutdown:
+      enabled: true #kill process from this trampoline UI
+  endpoints:
+    web:
+      exposure:
+        include:
+          - '*' #enable all the endpoints
+

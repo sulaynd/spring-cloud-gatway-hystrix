@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.javatechie.ps.api.PaymentServiceApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 19.004 s - in com.javatechie.ps.api.PaymentServiceApplicationTests

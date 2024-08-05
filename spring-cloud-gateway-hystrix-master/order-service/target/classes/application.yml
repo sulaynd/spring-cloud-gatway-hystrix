@@ -1,6 +1,38 @@
 server:
   port: 9192
 spring:
+  zipkin:
+    base-url: http://localhost:9411/
   h2:
     console:
       enabled: true
+  application:
+    name: order-service
+logging:
+  file:
+    name: /Volumes/SATA/DevOps/existing_repo/spring-cloud-gatway-hystrix/logs/microservice.log
+
+management:
+  endpoint:
+    shutdown:
+      enabled: true #kill process from this trampoline UI
+  endpoints:
+    web:
+      exposure:
+        include:
+          - '*' #enable all the endpoints
+
+
+
+
+# C:/Users/Basant.Hota/Desktop/oms.log
+
+#microservice:
+#  payment-service:
+#    endpoints:
+#      endpoint:
+#        uri: http://PAYMENT-SERVICE/payment/doPayment
+#  order-service:
+#    endpoints:
+#      endpoint:
+#        uri: http://ORDER-SERVICE/order/bookOrder
