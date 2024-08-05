@@ -1,0 +1,3 @@
+com/javatechie/cloud/gateway/dto/TransactionResponse.class
+com/javatechie/cloud/gateway/CloudGatewayApplication.class
+com/javatechie/cloud/gateway/FallbackController.class

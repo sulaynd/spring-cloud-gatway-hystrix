@@ -2,6 +2,10 @@ spring:
   application:
     name: GATEWAY-SERVICE
   cloud:
+    config:
+      enabled: false
+    compatibility-verifier:
+      enabled: false
     gateway:
       routes:
         - id: order-service
@@ -22,24 +26,65 @@ spring:
               args:
                 name: payment-service
                 fallbackuri: forward:/paymentFallback
+#            - name: Retry
+#              args:
+#                retries: 3
+##                statuses: BAD_GATEWAY
+##                methods: GET,POST
+#                backoff:
+#                  firstBackoff: 10ms
+#                  maxBackoff: 50ms
+##                  factor: 2
+##                  basedOnPreviousValue: false
                 
 
 server:
   port: 8989
   
 management:
+  health:
+    circuit-breakers:
+      #circuitbreakers:
+      enabled: true
   endpoint:
+    health:
+      show-details: always
     shutdown:
       enabled: true #kill process from this trampoline UI
   endpoints:
     web:
       exposure:
-        include: hystrix.stream
+        include: #hystrix.stream
+          - '*'
 
-hystrix:
-  command:
-    fallbackcmd:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 5000
+#hystrix:
+#  command:
+#    #fallbackcmd:
+#    fallback:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 5000
+
+
+resilience4j:
+  circuit-breaker:
+  #circuitbreaker:
+    instances:
+      payment-service:
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 10
+        failureRateThreshold: 50 #if 50 request failed then change the status to open
+        minimumNumberOfCalls: 5
+        automaticTransitionFromOpenToHalfOpenEnabled: true #transition happen automatically from open to half open after 5s for ex
+        waitDurationInOpenState: 5s #status change from open to half open
+        permittedNumberOfCallsInHalfOpenState: 3 # allow 3 calls in half open and after 3 cals it will change to the close if success
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
+
+
+  retry:
+    instances:
+      payment-service:
+        maxAttempts: 5 # real time keep it as 3
+        waitDuration: 10s # real time keep it as 2

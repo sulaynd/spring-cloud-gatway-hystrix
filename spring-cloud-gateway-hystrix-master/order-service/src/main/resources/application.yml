@@ -1,8 +1,23 @@
 server:
   port: 9192
 spring:
-  zipkin:
-    base-url: http://localhost:9411/
+  cloud:
+    config:
+      enabled: false
+    compatibility-verifier:
+      enabled: false
+
+    mvc:
+     problemdetails:
+       enabled: true
+  #  zipkin:
+#    base-url: http://localhost:9411/
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
   h2:
     console:
       enabled: true
@@ -13,26 +28,64 @@ logging:
     name: /Volumes/SATA/DevOps/existing_repo/spring-cloud-gatway-hystrix/logs/microservice.log
 
 management:
+  health:
+    circuit-breakers:
+      enabled: true
+
   endpoint:
-    shutdown:
-      enabled: true #kill process from this trampoline UI
+    health:
+      show-details: always
+
+#    shutdown:
+#      enabled: true #kill process from this trampoline UI
   endpoints:
     web:
       exposure:
         include:
           - '*' #enable all the endpoints
 
+#  tracing:
+#    sampling:
+#      probability: 1.0
 
+
+  #Resilienece 4j properties
+resilience4j:
+  circuit-breaker:
+    instances:
+      paymentService:
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 10
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 5
+        minimumNumberOfCalls: 5
+        failureRateThreshold: 50
+        waitDurationInOpenState: 5s
+        permittedNumberOfCallsInHalfOpenState: 3
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+#Resilience4J Retry Properties
+  retry:
+    instances:
+      paymentService:
+        maxRetryAttempts: 5
+        waitDuration: 60s
+
+
+  #Resilience4J Timeout Properties
+#  timelimiter:
+#    instances:
+#      inventory:
+#        timeoutDuration: 3s
 
 
 # C:/Users/Basant.Hota/Desktop/oms.log
-
-#microservice:
-#  payment-service:
-#    endpoints:
-#      endpoint:
-#        uri: http://PAYMENT-SERVICE/payment/doPayment
-#  order-service:
-#    endpoints:
-#      endpoint:
-#        uri: http://ORDER-SERVICE/order/bookOrder
+# common configuration here
+microservice:
+  payment-service:
+    endpoints:
+      endpoint:
+        uri: http://PAYMENT-SERVICE/payment/doPayment
+  order-service:
+    endpoints:
+      endpoint:
+        uri: http://ORDER-SERVICE/order/bookOrder
